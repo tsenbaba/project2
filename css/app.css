@@ -1,0 +1,310 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  
+}
+
+body {
+    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    font-family: 'Coda', cursive;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 200;
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    width: 660px;
+    min-height: 660px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.deck .card {
+    height: 125px;
+    width: 125px;
+    background: #2e3d49;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.deck .card.open {
+    transform: rotateY(0);
+    background: #02b3e4;
+    cursor: default;
+}
+
+.deck .card.show {
+    font-size: 33px;
+}
+
+.deck .card.match {
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
+
+}
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    text-align: left;
+    font-size: 1rem;
+    width: 345px;
+    margin-bottom: 10px;
+    
+}
+
+.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+    color: #ffdd00
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .restart {
+    float: right;
+    cursor: pointer;
+}
+
+
+/*close modal styles*/
+.modal_background {
+    position: absolute;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.438)
+
+}
+
+.modal_body{
+    position: relative;
+    width: 400px;
+    /*height: 400px;*/
+    top:  50%;
+    left: 50%;
+    background: #ffffff;
+    transform: translate(-50%,-70%);
+}
+
+.modal_heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+}
+
+.modal_close{
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.modal_title{
+    align-items: center;
+}
+
+.modal_summary{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.modal_buttons{
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    background-color: #ffffff
+}
+
+.modal_button{
+    width: 60px;
+    height: 30px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    border-radius:9px;
+    color:#fff;
+
+}
+
+.hide{
+    display: none;
+}
+
+
+/*start modal styles*/
+.modal_start {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(46, 61, 73, 0.883);
+}
+
+.modal_start_body {
+    position: relative;
+    width: 450px;
+    top: 50%;
+    left: 50%;
+    background: #ffffff;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    text-align: center;
+    padding: 2rem 2rem;
+    /*border:3px solid #02ccba;*/
+}
+
+.modal_start_button {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    border-radius:9px;
+    color:#fff;
+    font-size:25px;
+    
+    cursor: pointer;
+    font-family: 'Philosopher', sans-serif;
+}
+
+.modal_start_button:hover {
+    background: linear-gradient(160deg, #aa7ecd 0%, #02ccba 100%);
+}
+
+.modal_start_button:active {
+	background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+}
+
+
+
+/*Media queries*/
+
+/*iphone vertical */
+@media (max-width: 380px) {
+
+	.deck {
+        width: 375px;
+        min-height: 375px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 0 3em;
+    }
+
+	.deck .card {
+        height: 68px;
+        width: 68px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+	}
+}
+ /*iphone horizontal*/
+@media (max-height: 380px) {
+    h1 {
+        margin: 0;
+        font-size: 2;
+    }
+
+    .score-panel {
+        font-size: 0.75rem;
+        margin-bottom: 5px;
+    }
+
+	.deck {
+        width: 333px;
+        min-height: 333px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+	.deck .card {
+        height: 60px;
+        width: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      
+	}
+}
+
+@media (min-width: 768px) {
+    h1 {
+        margin: 0;
+        font-size: 4;
+    }
+
+    .score-panel {
+        font-size: 0.75em;
+        margin-bottom: 7px;
+    }
+   
+	.container {
+        font-size: 22px;
+	}
+
+	.deck {
+		width: 660px;
+        height: 680px;
+	}
+
+	.deck .card {
+		height: 125px;
+		width: 125px;
+	}
+
+	.modal_body {
+        width: 60%;
+	}
+}
+
